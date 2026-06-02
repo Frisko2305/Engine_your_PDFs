@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Pdf_Engine.App/Pdf_Engine.App.csproj" />
+  <Project Path="Pdf_Engine.Core/Pdf_Engine.Core.csproj" />
+</Solution>
