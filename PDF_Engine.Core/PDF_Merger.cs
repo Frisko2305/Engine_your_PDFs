@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using PdfSharp.Pdf;
+﻿using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
 namespace PDF_Engine.Core
@@ -23,6 +21,18 @@ namespace PDF_Engine.Core
                         }
                     }
                 }
+
+                // --- NEW AUTOMATED LOGIC ---
+                // Extract the directory path from the final output file path
+                string? containerDirectory = Path.GetDirectoryName(outputPath);
+                
+                // If the directory path is valid and does not exist yet, create it automatically
+                if (!string.IsNullOrEmpty(containerDirectory) && !Directory.Exists(containerDirectory))
+                {
+                    Directory.CreateDirectory(containerDirectory);
+                }
+                // ---------------------------
+
                 outputDocument.Save(outputPath);
             }
         }
