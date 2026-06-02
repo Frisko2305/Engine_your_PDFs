@@ -427,3 +427,14 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# =========================
+# CUSTOM PROJECT RULES
+# =========================
+
+# IGNORE EVERY PDF FILE AS TO AVOID SENSITIVE DATA LEAKS
+*.pdf
+
+# IGNORE LOCAL TEST FOLDERS IF CONTAINS FILES
+source/
+destination/
