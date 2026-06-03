@@ -1,0 +1,13 @@
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\bin\Debug\net10.0\PDF_Engine.Core.deps.json
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\bin\Debug\net10.0\PDF_Engine.Core.dll
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\bin\Debug\net10.0\PDF_Engine.Core.pdb
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.csproj.AssemblyReference.cache
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.AssemblyInfoInputs.cache
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.AssemblyInfo.cs
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.csproj.CoreCompileInputs.cache
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.sourcelink.json
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.dll
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\refint\PDF_Engine.Core.dll
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\PDF_Engine.Core.pdb
+C:\Users\niamo\OneDrive\Documents\GitHub\Engine_your_PDFs\PDF_Engine.Core\obj\Debug\net10.0\ref\PDF_Engine.Core.dll

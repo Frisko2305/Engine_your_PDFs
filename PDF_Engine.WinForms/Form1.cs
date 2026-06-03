@@ -2,10 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using PdfiumViewer;
+using System.IO;
+using System.Threading.Tasks;
+
+// THE FIX: Give the overlapping classes unique nicknames
+using PdfiumDoc = PdfiumViewer.PdfDocument;
+using SharpDoc = PdfSharp.Pdf.PdfDocument;
+
+// Keep the IO import for PdfReader
+using PdfSharp.Pdf.IO;
 
 namespace PDF_Engine.WinForms
 {
+    
     public partial class Form1 : Form
     {
         // 1. Initial State Buttons
@@ -129,7 +138,7 @@ namespace PDF_Engine.WinForms
             btnSaveExport = CreateUiButton("💾 Save & Export Document", Color.FromArgb(0, 120, 215), new Size(300, 50));
             btnSaveExport.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             btnSaveExport.Anchor = AnchorStyles.None; // Dead-center of the bottom row
-            btnSaveExport.Click += (s, e) => MessageBox.Show("Save & Export triggered! Next step: Wiring up PDF_Engine.Core!");
+            btnSaveExport.Click += BtnSaveExport_Click;
             mainLayout.Controls.Add(btnSaveExport, 0, 2);
 
             // ====================================================================
@@ -184,6 +193,19 @@ namespace PDF_Engine.WinForms
         // WORKSPACE LOGIC
         // ====================================================================
 
+        private void UpdateWorkspaceState()
+        {
+            // Loops through every card and ensures ONLY the final card has its Cut marker hidden
+            for (int i = 0; i < workspaceGrid.Controls.Count; i++)
+            {
+                if (workspaceGrid.Controls[i] is PdfPageCard card)
+                {
+                    bool isLastCard = (i == workspaceGrid.Controls.Count - 1);
+                    card.SetAsLastCard(isLastCard);
+                }
+            }
+        }
+
         private void ResetWorkspace()
         {
             // The "Drop All Pages" & Failsafe Logic
@@ -224,6 +246,120 @@ namespace PDF_Engine.WinForms
             }
         }
 
+        private async void BtnSaveExport_Click(object? sender, EventArgs e)
+        {
+            if (workspaceGrid.Controls.Count == 0) return;
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "PDF Files (*.pdf)|*.pdf";
+                sfd.Title = "Save your exported PDF(s)";
+                sfd.FileName = "Exported_Document.pdf";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    string basePath = sfd.FileName;
+            
+                    // UI Feedback: Change button to a loading state
+                    btnSaveExport.Text = "⏳ Exporting Document(s)...";
+                    btnSaveExport.Enabled = false;
+
+                    try
+                    {
+                        // Run the heavy PDF math in the background so the UI doesn't freeze!
+                        await Task.Run(() => ExecuteExport(basePath));
+                
+                        MessageBox.Show("Export Complete! Your new PDFs are ready.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Export Failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        // Restore button state
+                        btnSaveExport.Text = "💾 Save & Export Document";
+                        btnSaveExport.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        private void ExecuteExport(string baseFilePath)
+        {
+            // 1. THE RECIPE BUILDER (Chunking by Scissors)
+            var documentsToExport = new List<List<PdfPageCard>>();
+            var currentDocument = new List<PdfPageCard>();
+
+            // Read the grid from left-to-right, top-to-bottom
+            foreach (Control c in workspaceGrid.Controls)
+            {
+                if (c is PdfPageCard card)
+                {
+                    currentDocument.Add(card);
+
+                    // If we hit a cut marker, package this document and start a new one!
+                    if (card.IsCutActive)
+                    {
+                        documentsToExport.Add(currentDocument);
+                        currentDocument = new List<PdfPageCard>();
+                    }
+                }
+            }
+            // Add the final remaining pages to the final document
+            if (currentDocument.Count > 0) documentsToExport.Add(currentDocument);
+
+            // 2. THE ASSEMBLY LINE (PdfSharp Execution)
+            Dictionary<string, SharpDoc> openedSourceDocs = new Dictionary<string, SharpDoc>();
+
+            try
+            {
+                int fileCounter = 1;
+
+                foreach (var docRecipe in documentsToExport)
+                {
+                    using (SharpDoc outputDoc = new SharpDoc())
+                    {
+                        foreach (var card in docRecipe)
+                        {
+                            // Cache the source PDFs so we don't open the same file 50 times
+                            if (!openedSourceDocs.ContainsKey(card.SourcePdfPath))
+                            {
+                                openedSourceDocs[card.SourcePdfPath] = PdfReader.Open(card.SourcePdfPath, PdfDocumentOpenMode.Import);
+                            }
+
+                            SharpDoc sourceDoc = openedSourceDocs[card.SourcePdfPath];
+                            PdfSharp.Pdf.PdfPage page = sourceDoc.Pages[card.OriginalPageIndex];
+
+                            // Apply the math rotation we saved from the UI buttons!
+                            page.Rotate = (page.Rotate + card.CurrentRotation) % 360;
+
+                            outputDoc.AddPage(page);
+                        }
+
+                        // 3. FILE NAMING LOGIC
+                        string finalPath = baseFilePath;
+                
+                        // If there are cuts, append "_Part1", "_Part2", etc.
+                        if (documentsToExport.Count > 1)
+                        {
+                            string dir = Path.GetDirectoryName(baseFilePath) ?? "";
+                            string name = Path.GetFileNameWithoutExtension(baseFilePath);
+                            finalPath = Path.Combine(dir, $"{name}_Part{fileCounter}.pdf");
+                        }
+
+                        outputDoc.Save(finalPath);
+                        fileCounter++;
+                    }
+                }
+            }
+            finally
+            {
+                // Close and release all the original PDF files from memory
+                foreach (var doc in openedSourceDocs.Values) doc.Dispose();
+            }
+        }
+
         private void BtnAddPdf_Click(object? sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -247,12 +383,12 @@ namespace PDF_Engine.WinForms
 
             try
             {
-                using (var document = PdfDocument.Load(filePath))
+                using (var document = PdfiumDoc.Load(filePath))
                 {
                     for (int i = 0; i < document.PageCount; i++)
                     {
                         Image pageImage = document.Render(i, 400, 600, true);
-                        var card = new PdfPageCard(i, pageImage);
+                        var card = new PdfPageCard(filePath, i, pageImage);
                         card.ApplyScale(globalScale);
 
                         card.MouseDown += Card_MouseDown;
@@ -265,10 +401,13 @@ namespace PDF_Engine.WinForms
 
                             // If we manually delete the very last page, trigger the full reset
                             if (workspaceGrid.Controls.Count == 0) ResetWorkspace();
+                            else UpdateWorkspaceState();
                         };
 
                         pageCards.Add(card);
                         workspaceGrid.Controls.Add(card);
+
+                        UpdateWorkspaceState(); // Ensure Cut markers are updated as we add new pages
                     }
                 }
             }
@@ -340,6 +479,8 @@ namespace PDF_Engine.WinForms
             int originalIndex = workspaceGrid.Controls.GetChildIndex(draggedCard);
             if (explicitTargetFound && originalIndex < targetIndex) targetIndex--;
             if (originalIndex != targetIndex) workspaceGrid.Controls.SetChildIndex(draggedCard, targetIndex);
+
+            UpdateWorkspaceState();
         }
     }
 }

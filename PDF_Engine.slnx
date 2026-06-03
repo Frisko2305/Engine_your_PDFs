@@ -1,5 +1,4 @@
 <Solution>
-  <Project Path="PDF_Engine.App/PDF_Engine.App.csproj" />
   <Project Path="PDF_Engine.Core/PDF_Engine.Core.csproj" />
   <Project Path="PDF_Engine.WinForms/PDF_Engine.WinForms.csproj" />
 </Solution>

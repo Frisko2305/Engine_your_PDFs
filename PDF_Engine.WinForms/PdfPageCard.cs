@@ -8,11 +8,16 @@ namespace PDF_Engine.WinForms
     public partial class PdfPageCard : UserControl
     {
         public PictureBox PageThumbnail { get; private set; }
-        
-        // Notice: The lblPageNumber is completely gone!
+        public string SourcePdfPath { get; private set; }        
         private Button btnRotateLeft;
         private Button btnRotateRight;
         private Button btnDelete;
+        
+        // NEW: The Scissors Tool
+        private Button btnCut;
+        public bool IsCutActive { get; private set; } = false;
+        private bool isLastCard = false;
+        private float currentScale = 1.0f;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int OriginalPageIndex { get; set; }
@@ -24,8 +29,9 @@ namespace PDF_Engine.WinForms
         public event EventHandler? RotateRightClicked;
         public event EventHandler? DeleteClicked;
 
-        public PdfPageCard(int pageIndex, Image thumbnail)
+        public PdfPageCard(string sourcePath, int pageIndex, Image thumbnail)
         {
+            SourcePdfPath = sourcePath;
             OriginalPageIndex = pageIndex;
             InitializeCard();
             SetupComponents(thumbnail);
@@ -68,12 +74,24 @@ namespace PDF_Engine.WinForms
                 RotateLeftClicked?.Invoke(this, EventArgs.Empty);
             };
 
+            // NEW: Setup the Cut Button
+            btnCut = new Button
+            {
+                Text = "✂",
+                ForeColor = Color.Gray,
+                BackColor = Color.FromArgb(35, 35, 38), // Slightly darker to look like a gap
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
+            };
+            btnCut.FlatAppearance.BorderSize = 0;
+            btnCut.Click += BtnCut_Click;
+
             this.Controls.Add(PageThumbnail);
             this.Controls.Add(btnDelete);
             this.Controls.Add(btnRotateRight);
             this.Controls.Add(btnRotateLeft);
+            this.Controls.Add(btnCut);
 
-            // Automatically snap to 100% size when created
             ApplyScale(1.0f);
         }
 
@@ -90,28 +108,66 @@ namespace PDF_Engine.WinForms
         }
 
         // ==========================================
+        // CUT MARKER LOGIC
+        // ==========================================
+        private void BtnCut_Click(object? sender, EventArgs e)
+        {
+            IsCutActive = !IsCutActive;
+            UpdateCutVisuals();
+        }
+
+        private void UpdateCutVisuals()
+        {
+            if (IsCutActive)
+            {
+                btnCut.BackColor = Color.IndianRed;
+                btnCut.ForeColor = Color.White;
+                btnCut.Font = new Font("Segoe UI", Math.Max(12f, 16f * currentScale), FontStyle.Bold);
+            }
+            else
+            {
+                btnCut.BackColor = Color.FromArgb(35, 35, 38);
+                btnCut.ForeColor = Color.Gray;
+                btnCut.Font = new Font("Segoe UI", Math.Max(10f, 14f * currentScale), FontStyle.Regular);
+            }
+        }
+
+        public void SetAsLastCard(bool isLast)
+        {
+            if (isLastCard != isLast)
+            {
+                isLastCard = isLast;
+                btnCut.Visible = !isLast;
+                if (isLast) IsCutActive = false; // Failsafe: Cannot cut after the last page
+                UpdateCutVisuals();
+                ApplyScale(currentScale); // Recalculate physical width to hide/show the margin
+            }
+        }
+
+        // ==========================================
         // DYNAMIC SCALING ENGINE
         // ==========================================
         public void ApplyScale(float scale)
         {
-            // Base A4 ratio math
-            int cardWidth = (int)(200 * scale);
-            int cardHeight = (int)(300 * scale);
-            this.Size = new Size(cardWidth, cardHeight);
+            currentScale = scale;
             
+            // Core measurements
+            int pageWidth = (int)(200 * scale);
+            int cutWidth = (int)(40 * scale);
+            int cardHeight = (int)(300 * scale);
             int padding = (int)(10 * scale);
             
-            // Limit how small the buttons can get so they are always clickable
+            // If it is the last card, we completely cut off the right-side margin!
+            this.Size = new Size(pageWidth + (isLastCard ? 0 : cutWidth), cardHeight);
+            
             int buttonSize = (int)(25 * Math.Max(scale, 0.7f)); 
             int buttonY = cardHeight - buttonSize - padding;
             
-            // Image takes up all space above the buttons
             PageThumbnail.Location = new Point(padding, padding);
-            PageThumbnail.Size = new Size(cardWidth - (padding * 2), buttonY - (padding * 2));
+            PageThumbnail.Size = new Size(pageWidth - (padding * 2), buttonY - (padding * 2));
             
-            // Align buttons from Right to Left
             btnDelete.Size = new Size(buttonSize, buttonSize);
-            btnDelete.Location = new Point(cardWidth - padding - buttonSize, buttonY);
+            btnDelete.Location = new Point(pageWidth - padding - buttonSize, buttonY);
             
             btnRotateRight.Size = new Size(buttonSize, buttonSize);
             btnRotateRight.Location = new Point(btnDelete.Left - (int)(5 * scale) - buttonSize, buttonY);
@@ -119,7 +175,12 @@ namespace PDF_Engine.WinForms
             btnRotateLeft.Size = new Size(buttonSize, buttonSize);
             btnRotateLeft.Location = new Point(btnRotateRight.Left - (int)(5 * scale) - buttonSize, buttonY);
 
-            // Scale the icon font sizes so they fit perfectly
+            // Position the tall Cut Button in the new right-hand margin
+            btnCut.Size = new Size((int)(30 * scale), cardHeight - (padding * 2));
+            btnCut.Location = new Point(pageWidth + (int)(5 * scale), padding);
+            
+            UpdateCutVisuals(); // Ensure fonts scale properly
+
             float fontSize = Math.Max(6f, 8f * scale);
             Font btnFont = new Font("Segoe UI", fontSize);
             btnDelete.Font = btnFont;
