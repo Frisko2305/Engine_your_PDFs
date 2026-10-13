@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PDF_Engine.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e201d4a502acf05339b8e5fdac1fd8f7faa9400")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdd5f3f4479153e6297ac9872f656100fe015f00")]
 [assembly: System.Reflection.AssemblyProductAttribute("PDF_Engine.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PDF_Engine.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
