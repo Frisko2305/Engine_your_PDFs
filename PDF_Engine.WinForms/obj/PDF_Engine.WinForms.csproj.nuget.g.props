@@ -12,10 +12,105 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\niamo\.nuget\packages\" />
   </ItemGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-E.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-E.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-E.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-N.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-N.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-N.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-NE.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-NE.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-NE.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-NW.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-NW.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-NW.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-S.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-S.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-S.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-SE.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-SE.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-SE.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-SW.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-SW.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-SW.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-W.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\ShadeBorder-W.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>ShadeBorder-W.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\disk_blue.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\disk_blue.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>disk_blue.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\printer.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\printer.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>printer.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\zoom_in.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\zoom_in.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>zoom_in.png</Link>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\zoom_out.png" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.core\1.0.1\contentFiles\any\netcoreapp3.1\zoom_out.png')">
+      <NuGetPackageId>PdfiumViewer.Core</NuGetPackageId>
+      <NuGetPackageVersion>1.0.1</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <Private>False</Private>
+      <Link>zoom_out.png</Link>
+    </Content>
+  </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props" Condition="Exists('$(NuGetPackageRoot)pdfiumviewer.native.x86_64.v8-xfa\2018.4.8.256\Build\PdfiumViewer.Native.x86_64.v8-xfa.props')" />
   </ImportGroup>
-  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgPdfiumViewer Condition=" '$(PkgPdfiumViewer)' == '' ">C:\Users\niamo\.nuget\packages\pdfiumviewer\2.13.0</PkgPdfiumViewer>
-  </PropertyGroup>
 </Project>

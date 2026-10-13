@@ -391,9 +391,9 @@
               "target": "Package",
               "version": "[6.2.4, )"
             },
-            "PdfiumViewer": {
+            "PdfiumViewer.Core": {
               "target": "Package",
-              "version": "[2.13.0, )"
+              "version": "[1.0.1, )"
             },
             "PdfiumViewer.Native.x86_64.v8-xfa": {
               "target": "Package",

@@ -37,21 +37,82 @@
           "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
         }
       },
-      "PdfiumViewer/2.13.0": {
+      "PdfiumViewer.Core/1.0.1": {
         "type": "package",
         "compile": {
-          "lib/net20/PdfiumViewer.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/PdfiumViewer.dll": {}
         },
         "runtime": {
-          "lib/net20/PdfiumViewer.dll": {
-            "related": ".xml"
+          "lib/netcoreapp3.1/PdfiumViewer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ],
+        "resource": {
+          "lib/netcoreapp3.1/nl/PdfiumViewer.resources.dll": {
+            "locale": "nl"
           }
         },
-        "resource": {
-          "lib/net20/nl/PdfiumViewer.resources.dll": {
-            "locale": "nl"
+        "contentFiles": {
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-E.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-N.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-NE.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-NW.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-S.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-SE.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-SW.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/ShadeBorder-W.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/disk_blue.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/printer.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/zoom_in.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
+          },
+          "contentFiles/any/netcoreapp3.1/zoom_out.png": {
+            "buildAction": "Content",
+            "codeLanguage": "any",
+            "copyToOutput": false
           }
         }
       },
@@ -246,20 +307,41 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "PdfiumViewer/2.13.0": {
-      "sha512": "Nw4owBmJzDVXoMRjCnqPbET07CPOawwhcNjt+PyRaSxONN9bsFF+cm9kcMsDLEAEaxsiDJo5jls8bCQjvjidkA==",
+    "PdfiumViewer.Core/1.0.1": {
+      "sha512": "SGY23MOafD20mO2PRErM7uvehxvUUsKT52FeuiCgBjI7TJ0moTJKh8z2LOHnCzZkyzeDirzdqBX8KZJOjqqaRA==",
       "type": "package",
-      "path": "pdfiumviewer/2.13.0",
-      "hasTools": true,
+      "path": "pdfiumviewer.core/1.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Tools/Install.ps1",
-        "lib/net20/PdfiumViewer.dll",
-        "lib/net20/PdfiumViewer.xml",
-        "lib/net20/nl/PdfiumViewer.resources.dll",
-        "pdfiumviewer.2.13.0.nupkg.sha512",
-        "pdfiumviewer.nuspec"
+        "content/ShadeBorder-E.png",
+        "content/ShadeBorder-N.png",
+        "content/ShadeBorder-NE.png",
+        "content/ShadeBorder-NW.png",
+        "content/ShadeBorder-S.png",
+        "content/ShadeBorder-SE.png",
+        "content/ShadeBorder-SW.png",
+        "content/ShadeBorder-W.png",
+        "content/disk_blue.png",
+        "content/printer.png",
+        "content/zoom_in.png",
+        "content/zoom_out.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-E.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-N.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-NE.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-NW.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-S.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-SE.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-SW.png",
+        "contentFiles/any/netcoreapp3.1/ShadeBorder-W.png",
+        "contentFiles/any/netcoreapp3.1/disk_blue.png",
+        "contentFiles/any/netcoreapp3.1/printer.png",
+        "contentFiles/any/netcoreapp3.1/zoom_in.png",
+        "contentFiles/any/netcoreapp3.1/zoom_out.png",
+        "lib/netcoreapp3.1/PdfiumViewer.dll",
+        "lib/netcoreapp3.1/nl/PdfiumViewer.resources.dll",
+        "pdfiumviewer.core.1.0.1.nupkg.sha512",
+        "pdfiumviewer.core.nuspec"
       ]
     },
     "PdfiumViewer.Native.x86_64.v8-xfa/2018.4.8.256": {
@@ -402,7 +484,7 @@
     "net10.0-windows7.0": [
       "PDF_Engine.Core >= 1.0.0",
       "PDFsharp >= 6.2.4",
-      "PdfiumViewer >= 2.13.0",
+      "PdfiumViewer.Core >= 1.0.1",
       "PdfiumViewer.Native.x86_64.v8-xfa >= 2018.4.8.256"
     ]
   },
@@ -457,9 +539,9 @@
             "target": "Package",
             "version": "[6.2.4, )"
           },
-          "PdfiumViewer": {
+          "PdfiumViewer.Core": {
             "target": "Package",
-            "version": "[2.13.0, )"
+            "version": "[1.0.1, )"
           },
           "PdfiumViewer.Native.x86_64.v8-xfa": {
             "target": "Package",
@@ -778,17 +860,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'PdfiumViewer 2.13.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net10.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "PdfiumViewer",
-      "targetGraphs": [
-        "net10.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }
