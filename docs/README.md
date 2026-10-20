@@ -8,7 +8,6 @@ PDF Engine is a fast, desktop-native visual workspace for manipulating PDF docum
 
 ![Home Menu](Home.png)
 
-
 ## ✨ Core Features
 
 * **Visual Storyboard:** View your entire document as a grid of interactive cards.
