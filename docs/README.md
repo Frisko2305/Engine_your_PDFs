@@ -1,8 +1,10 @@
 # 📄 PDF Engine
 
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![.NET 10](https://img.shields.io/badge/.NET_10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![WinForms](https://img.shields.io/badge/WinForms-0078D4?style=for-the-badge&logo=windows&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
+![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows)
+![License](https://img.shields.io/badge/License-MIT-green)
+[![Release](https://img.shields.io/github/v/release/Frisko2305/Engine_your_PDFs)](https://github.com/Frisko2305/Engine_your_PDFs/releases)
 
 PDF Engine is a fast, desktop-native visual workspace for manipulating PDF documents. It allows you to visually merge, split, rotate, and reorder pages using a highly responsive drag-and-drop storyboard interface without permanently altering your original files until you are ready to export.
 
