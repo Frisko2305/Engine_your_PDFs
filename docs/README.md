@@ -1,8 +1,9 @@
 # 📄 PDF Engine
 
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![.NET 10](https://img.shields.io/badge/.NET_10-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
-![WinForms](https://img.shields.io/badge/WinForms-0078D4?style=for-the-badge&logo=windows&logoColor=white)
+![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
+![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows)
+![License](https://img.shields.io/badge/License-MIT-green)
+[![Release](https://img.shields.io/github/v/release/Frisko2305/Engine_your_PDFs)](https://github.com/Frisko2305/Engine_your_PDFs/releases)
 
 PDF Engine is a fast, desktop-native visual workspace for manipulating PDF documents. It allows you to visually merge, split, rotate, and reorder pages using a highly responsive drag-and-drop storyboard interface without permanently altering your original files until you are ready to export.
 
@@ -34,17 +35,27 @@ To ensure maximum performance and prevent UI freezing when handling massive PDF 
 
 ## 🚀 Getting Started
 
-### Prerequisites
-* [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or newer.
+You can run the application either by downloading the standalone executable (no installation required) or by building from source.
 
-### Installation & Run
-Copy and paste this single block into your terminal to clone the repository, navigate to the UI project, and launch the application:
+### Option 1: Quick Start (Standalone Executable - Recommended)
 
+1. Head over to the **[Releases](https://github.com/Frisko2305/Engine_your_PDFs/releases)** tab.
+2. Download `PDF_Engine.exe`.
+3. Double-click the file to run it immediately — **no .NET installation or setup required**!
+
+---
+
+### Option 2: Build & Run from Source
+
+#### Prerequisites
+* [.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or newer (Windows).
+
+#### Clone & Run
+Open PowerShell or your preferred terminal:
 ```bash
-git clone [https://github.com/frisko2305/Engine_your_PDFs.git](https://github.com/frisko2305/Engine_your_PDFs.git)
+git clone https://github.com/Frisko2305/Engine_your_PDFs.git
 cd Engine_your_PDFs/PDF_Engine.WinForms
 dotnet run
 ```
-The final background execution: perfectly sliced and merged PDFs delivered to your directory.
 
 Developed by Frisko2305.

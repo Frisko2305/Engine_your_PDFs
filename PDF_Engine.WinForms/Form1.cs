@@ -18,20 +18,20 @@ namespace PDF_Engine.WinForms
     public partial class Form1 : Form
     {
         // 1. Initial State Buttons
-        private Button btnUploadInitial;
-        private Button btnCloseApp;
+        private Button btnUploadInitial = null!;
+        private Button btnCloseApp = null!;
         
         // 2. The Main Layout Grids
-        private TableLayoutPanel mainLayout;
-        private TableLayoutPanel topToolbar;
-        private FlowLayoutPanel workspaceGrid;
+        private TableLayoutPanel mainLayout = null!;
+        private TableLayoutPanel topToolbar = null!;
+        private FlowLayoutPanel workspaceGrid = null!;
 
         // 3. Workspace Controls
-        private Button btnClearAll;
-        private Button btnAddPdf;
-        private Button btnZoomIn;
-        private Button btnZoomOut;
-        private Button btnSaveExport;
+        private Button btnClearAll = null!;
+        private Button btnAddPdf = null!;
+        private Button btnZoomIn = null!;
+        private Button btnZoomOut = null!;
+        private Button btnSaveExport = null!;
 
         // State tracking
         private string currentPdfPath = string.Empty;
