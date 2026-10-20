@@ -7,7 +7,7 @@
 PDF Engine is a fast, desktop-native visual workspace for manipulating PDF documents. It allows you to visually merge, split, rotate, and reorder pages using a highly responsive drag-and-drop storyboard interface without permanently altering your original files until you are ready to export.
 
 ![Home Menu](Home.png)
-*The clean, centered launch menu to begin your workspace session.*
+
 
 ## ✨ Core Features
 
@@ -19,7 +19,6 @@ PDF Engine is a fast, desktop-native visual workspace for manipulating PDF docum
 * **Dynamic Zoom:** Scale the workspace in and out for a bird's-eye view of massive documents.
 
 ![Initial PDF Upload](Specimen.png)
-*A fresh PDF loaded into the engine, ready to be manipulated.*
 
 ---
 
@@ -31,7 +30,6 @@ To ensure maximum performance and prevent UI freezing when handling massive PDF 
 2. **The Core Logic ("The Mechanic"):** Powered by `PdfSharp`. The original PDF file is never altered during the session (Non-Destructive Editing). When you click **Save & Export**, the backend reads your visual layout, opens the original files asynchronously, and rapidly outputs the brand-new assembled PDFs.
 
 ![Active Workspace](Zooming%20;%20Adding%20;%20Split%20;%20Moved%20;%20Rotated.png)
-*The workspace in action: zoomed out, multiple files merged, pages rotated, and a cut marker placed to split the export.*
 
 ---
 
