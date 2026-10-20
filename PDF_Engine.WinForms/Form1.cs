@@ -49,10 +49,10 @@ namespace PDF_Engine.WinForms
         private void SetupMainWindow()
         {
             this.Text = "PDF Engine - Professional Workspace";
-            this.Size = new Size(1200, 800);
+            this.Size = new Size(1200, 800); // Or e.g. 1024, 700
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(30, 30, 30);
-            this.WindowState = FormWindowState.Maximized; 
+            this.WindowState = FormWindowState.Normal;
         }
 
         private void ShowInitialState()

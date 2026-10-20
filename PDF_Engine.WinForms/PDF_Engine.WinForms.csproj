@@ -8,6 +8,7 @@
     <PackageReference Include="PdfiumViewer.Core" Version="1.0.1" />
     <PackageReference Include="PdfiumViewer.Native.x86_64.v8-xfa" Version="2018.4.8.256" />
     <PackageReference Include="PDFsharp" Version="6.2.4" />
+    <EmbeddedResource Include="..\docs\app.ico" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -16,6 +17,15 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>..\docs\app.ico</ApplicationIcon>
+
+    <AssemblyName>PDF_Engine</AssemblyName>
+
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
 
 </Project>
